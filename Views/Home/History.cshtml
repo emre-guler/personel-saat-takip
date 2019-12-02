@@ -1,0 +1,44 @@
+﻿@using WebApplication23.Models.ViewModels
+@model PersonViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>History</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/mycss/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Day / Person</th>
+                    @foreach (var Person in Model.Fullname)
+                    {
+                        <th scope="col">@Person.Fullname</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Person in Model.Hour)
+                {
+                    <tr>
+                        <td>@Person.Hour.ToString("dd:MM:yyyy")</td>
+                        @foreach (var Clock in Model.Hour)
+                        {
+                            <td>@Person.Hour.ToString("H:mm")</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+</body>
+</html>
